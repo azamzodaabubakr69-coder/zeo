@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 24 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 24 83% 58%;
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 24 83% 58%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 24 83% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.markdown {
+  @apply text-[15px] leading-relaxed;
+}
+.markdown p {
+  @apply my-3;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  @apply font-semibold mt-5 mb-2;
+}
+.markdown h1 { @apply text-xl; }
+.markdown h2 { @apply text-lg; }
+.markdown h3 { @apply text-base; }
+.markdown ul {
+  @apply list-disc pl-6 my-3;
+}
+.markdown ol {
+  @apply list-decimal pl-6 my-3;
+}
+.markdown li {
+  @apply my-1;
+}
+.markdown a {
+  @apply text-primary underline underline-offset-2;
+}
+.markdown code {
+  @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em];
+}
+.markdown pre {
+  @apply rounded-lg bg-secondary text-secondary-foreground p-4 my-4 overflow-x-auto font-mono text-[13px] leading-6 border border-border;
+}
+.markdown pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+.markdown blockquote {
+  @apply border-l-2 border-border pl-4 italic text-muted-foreground my-3;
+}
+.markdown table {
+  @apply w-full border-collapse my-3 text-sm;
+}
+.markdown th,
+.markdown td {
+  @apply border border-border px-3 py-2 text-left;
+}
